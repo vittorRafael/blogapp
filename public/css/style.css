@@ -1,0 +1,41 @@
+.blogapp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.blogapp-btn {
+  width: fit-content;
+}
+
+.blogapp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blogapp-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.blogapp-span-success {
+  color: green;
+  font-weight: bold;
+}
+
+.blogapp-span-danger {
+  color: red;
+  font-weight: bold;
+}
+
+.blogapp-select {
+  max-width: 20rem !important;
+}

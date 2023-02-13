@@ -1,0 +1,36 @@
+<h3>Editar Categoria: </h3>
+<div class='card'>
+  <div class='card-body'>
+    <form class='blogapp-form' action='/admin/categorias/edit' method='post'>
+      <div>
+        <input type='hidden' name='id' value='{{categoria._id}}' />
+        <label for='nome'>Nome: </label>
+        <input
+          type='text'
+          class='form-control'
+          id='nome'
+          name='nome'
+          placeholder='Nome da categoria'
+          value='{{categoria.nome}}'
+        />
+      </div>
+      <div>
+        <label for='slug'>Slug: </label>
+        <input
+          type='text'
+          class='form-control'
+          name='slug'
+          id='slug'
+          placeholder='Slug da categoria'
+          value='{{categoria.slug}}'
+        />
+      </div>
+      <button type='submit' class='btn btn-success blogapp-btn'>Editar Categoria</button>
+    </form>
+  </div>
+</div>
+{{#each erros}}
+  <p class='alert alert-danger mt-4'>{{text}}</p>
+{{else}}
+
+{{/each}}

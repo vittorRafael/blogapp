@@ -1,0 +1,30 @@
+<div class="card" style="background-color: #f1f1f1;">
+  <div class="card-body">
+    <div class="jumbotron">
+      <h1 class="display-4">Bem vindo ao meu BLOGAPP</h1>
+      <p class="lead">Leia sobre novidades do mundo da computação.</p>
+      <hr class="my-4">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Postagens Recentes</h2>
+
+{{#each postagens}}
+  <div class='card mt-4'>
+    <div class='card-body blogapp-card'>
+      <h4>{{titulo}}</h4>
+      <small>Descrição: {{descricao}}</small>
+      <hr>
+      <small>Categoria: {{categoria.nome}}</small>
+      <small>Data de publicação: {{date}}</small>
+      <hr>
+      <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+    </div>
+  </div>
+{{else}}
+  <h5>Nenhuma postagem registrada</h5>
+{{/each}}

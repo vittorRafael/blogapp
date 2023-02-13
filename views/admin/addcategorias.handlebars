@@ -1,0 +1,33 @@
+<h3>Nova Categoria: </h3>
+<div class='card'>
+  <div class='card-body'>
+    <form class='blogapp-form' action='/admin/categorias/nova' method='post'>
+      <div>
+        <label for='nome'>Nome: </label>
+        <input
+          type='text'
+          class='form-control'
+          id='nome'
+          name='nome'
+          placeholder='Nome da categoria'
+        />
+      </div>
+      <div>
+        <label for='slug'>Slug: </label>
+        <input
+          type='text'
+          class='form-control'
+          name='slug'
+          id='slug'
+          placeholder='Slug da categoria'
+        />
+      </div>
+      <button type='submit' class='btn btn-success blogapp-btn'>Criar Categoria</button>
+    </form>
+  </div>
+</div>
+{{#each erros}}
+  <p class='alert alert-danger mt-4'>{{text}}</p>
+{{else}}
+
+{{/each}}

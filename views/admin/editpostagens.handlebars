@@ -1,0 +1,55 @@
+<h3>Editar Postagem: </h3>
+<div class='card'>
+  <div class='card-body'>
+    <form class='blogapp-form' action='/admin/postagem/edit' method='post'>
+      <input type='hidden' name='id' value='{{postagem._id}}' />
+      <div>
+        <label for='titulo'>Título:</label>
+        <input type='text' name='titulo' id='titulo' class="form-control" value="{{postagem.titulo}}" placeholder='Título da Postagem' />
+      </div>
+      <div>
+        <label for="slug">Slug:</label>
+        <input type="text" name="slug" id="slug" class="form-control" value="{{postagem.slug}}" placeholder="Slug da Postagem">
+      </div>
+      <div>
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" id="descricao" class="form-control" value="{{postagem.descricao}}" placeholder="Descrição da Postagem">
+      </div>
+      <div>
+        <label for="conteudo">Conteúdo:</label>
+        <textarea name="conteudo" id="conteudo" placeholder="Digite aqui o conteúdo" class="form-control">
+          {{postagem.conteudo}}
+        </textarea>
+      </div>
+      <input type="hidden" name="categorianame" id="categorianame" value="{{postagem.categoria}}">
+      <div>
+        <label for="categoria">Categoria: </label>
+        <select class="blogapp-select form-select" name="categoria" id="categoria">
+            <option value="00">Escolha uma Categoria</option>
+          {{#each categorias}}
+            <option value="{{_id}}">{{nome}}</option>
+          {{else}}
+            <option value="0">Nenhuma categoria registrada</option>
+          {{/each}}
+        </select>
+      </div>
+      <button type='submit' class='btn btn-success blogapp-btn'>Editar Postagem</button>
+    </form>
+  </div>
+</div>
+{{#each erros}}
+  <p class='alert alert-danger mt-4'>{{text}}</p>
+{{else}}
+
+{{/each}}
+
+<script type="text/javascript">  
+
+var categoria = document.getElementById("categorianame").value;
+var conteudo = document.getElementById('conteudo')
+
+conteudo.value = conteudo.value.trim()
+document.getElementById("categoria").value = categoria;
+
+
+</script>

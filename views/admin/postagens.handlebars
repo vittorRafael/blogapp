@@ -1,0 +1,74 @@
+<h2>Lista de Postagens: </h2>
+<hr />
+<a href='/admin/postagens/add'><button class='btn btn-success'>Nova postagem</button></a>
+
+{{#each postagens}}
+  <div class='card mt-4'>
+    <div class='card-body blogapp-card'>
+      <h4>{{titulo}}</h4>
+      <p>Descrição: {{descricao}}</p>
+      <small>Slug: {{slug}}</small>
+      <small>Data de criação: {{date}}</small>
+      <small>Categoria: {{categoria.nome}}</small>
+      <div class='blogapp-div'>
+        <a href='/admin/postagens/edit/{{_id}}'><button
+            class='btn btn-success'
+          >📝</button></a>
+          <!-- Button trigger modal -->
+        <button
+          type='button'
+          class='btn btn-danger'
+          data-bs-toggle='modal'
+          data-bs-target='#exampleModal{{_id}}'
+        >
+          🗑️
+        </button>
+
+        <!-- Modal -->
+        <div
+          class='modal fade'
+          id='exampleModal{{_id}}'
+          tabindex='-1'
+          aria-labelledby='exampleModalLabel'
+          aria-hidden='true'
+        >
+          <div class='modal-dialog'>
+            <div class='modal-content'>
+              <div class='modal-header'>
+                <h1 class='modal-title fs-5' id='exampleModalLabel'>Deseja
+                  deletar a categoria
+                  {{nome}}?</h1>
+                <button
+                  type='button'
+                  class='btn-close'
+                  data-bs-dismiss='modal'
+                  aria-label='Close'
+                ></button>
+              </div>
+              <div class='modal-body'>
+                Se sim, aperte em
+                <span class='blogapp-span-danger'>deletar</span>.
+                <br />
+                Se não quiser deletá-la, aperte em
+                <span class='blogapp-span-success'>cancelar</span>.
+              </div>
+              <div class='modal-footer'>
+                <button
+                  type='button'
+                  class='btn btn-success'
+                  data-bs-dismiss='modal'
+                >Cancelar</button>
+                <form action='/admin/postagens/deletar' method='post'>
+                  <input type='hidden' name='id' value='{{_id}}' />
+                  <button type='submit' class='btn btn-danger'>Deletar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <p>Nenhuma postagem registrada</p>
+{{/each}}
