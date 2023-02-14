@@ -79,7 +79,7 @@ app.use('/admin', admin);
 app.use('/usuarios', usuarios)
 
 //Outros
-const port = process.env.PORT || 8081;
+const port = 8081;
 
 app.listen(port, () => {
   console.log('servidor rodando na porta ' + port);
