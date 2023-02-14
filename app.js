@@ -11,7 +11,6 @@ const flash = require('connect-flash')
 const Postagem = require('./models/Postagem')
 const passport = require('passport')
 require('./config/auth')(passport)
-const db = require('./config/db')
 
 
 //Configurações
@@ -41,7 +40,7 @@ app.set('view engine', 'handlebars');
 //public
 app.use(express.static(path.join(__dirname, 'public')));
 //mongoose
-mongoose.connect(db.mongoURI).then(() => {
+mongoose.connect("mongodb+srv://vittorRafael:rafas4650@blogapp.bobiuww.mongodb.net/?retryWrites=true&w=majority").then(() => {
   console.log('conectado ao mongo')
 }).catch((err) => {
   console.log('Erro ao se conectar: ' + err)
